@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from 'next/image'
 
 interface Blog {
   id: number;
@@ -77,7 +78,7 @@ export default function EditableBlogPage() {
         Editable Blog Page
       </h1>
 
-      <div className="bg-white w-[900px] box-content  shadow-md rounded p-4 mb-6">
+      <div className="bg-white w-[900px] box-content shadow-md rounded p-4 mb-6">
         <h2 className="text-2xl font-bold mb-4">{editingId ? "Edit Blog" : "Add New Blog"}</h2>
         <input
           type="text"
@@ -133,9 +134,11 @@ export default function EditableBlogPage() {
             key={blog.id}
             className="bg-white shadow-md rounded-lg overflow-hidden"
           >
-            <img
+            <Image
               src={blog.image || "https://via.placeholder.com/150"}
               alt={blog.title || "Default Blog Image"}
+              width={500}  // You need to specify width and height
+              height={300} // You need to specify width and height
               className="w-full h-40 object-cover"
             />
             <div className="p-4">
